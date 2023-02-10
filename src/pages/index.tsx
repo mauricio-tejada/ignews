@@ -3,7 +3,7 @@ import styles from './home.module.scss'
 
 import { Roboto } from '@next/font/google'
 import { SubscribeButton } from '@/components/SubscribeButton'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { stripe } from '../services/stripe'
 
 const roboto = Roboto({weight: ['400', '700'],style: ['normal'],subsets:['latin']})
@@ -41,7 +41,7 @@ export default function Home({ product }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve('price_1MZ1EmFJJ4ojwkQs6Kw02Z6x')
 
   const product = {
@@ -55,6 +55,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       product
-    }
+    },
+    //intervalo de tempo para a geração de um novo HTML em segundos
+		revalidate: 60 * 60 * 24 //24horas
   }
 }
