@@ -1,0 +1,32 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "tape"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Anim dolor labore do non reprehenderit ex do aute id. Enim consequat esse sunt occaecat adipisicing esse sint."
+        }
+      }
+    ]
+  },
+  "content": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Aliquip anim reprehenderit officia culpa voluptate mollit proident dolore sunt officia enim exercitation ea. Ex eiusmod ullamco veniam minim anim esse tempor. Cillum deserunt deserunt dolore excepteur exercitation velit est proident laboris in dolore ut Lorem sit."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}

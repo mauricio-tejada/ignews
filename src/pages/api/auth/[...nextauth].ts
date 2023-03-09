@@ -14,7 +14,7 @@ export const authOptions = {
 ],
   scope: 'read:user',
   callbacks: {
-    async signIn (user, account, profile) {
+    async signIn (user: any, account: any, profile: any) {
         const { email } = user.user
 
         try {
@@ -40,7 +40,6 @@ export const authOptions = {
                 )
             )
         )
-        console.log(`email: ${email}`)
         return true
         }
         catch {
