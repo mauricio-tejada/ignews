@@ -4,6 +4,7 @@ import Head from 'next/head'
 import styles from './styles.module.scss'
 import * as prismicH from '@prismicio/helpers'
 import * as Prismic from "@prismicio/client"
+import Link from 'next/link'
 
 type Post = {
     slug: string,
@@ -26,11 +27,11 @@ export default function Posts({ posts }: PostProps) {
             <main className={styles.container}>
                 <div className={styles.posts}>
                     { posts.map(post => (
-                        <a key={post.slug} href="#">
+                        <Link key={post.slug} href={`/posts/${post.slug}`}>
                             <time>{post.updatedAt}</time>
                             <strong>{post.title}</strong>
                             <p>{post.exerpt}</p>
-                        </a>
+                        </Link>
                     )) }
                 </div>
             </main>
