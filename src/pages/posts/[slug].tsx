@@ -1,4 +1,4 @@
-import { getPrismicClient } from "@/services/prismic"
+import { getPrismicClient } from "../../services/prismic"
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/react"
 import * as prismicH from '@prismicio/helpers'
@@ -39,6 +39,15 @@ export default function Post({ post }: PostProps) {
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
     const session = await getSession({ req })
     const { slug } = params
+
+    if (!session?.activeSubscription) {
+        return {
+            redirect: {
+                destination: `/posts/preview/${slug}`,
+                permanent: false
+            }
+        }
+    }
 
     const prismic = getPrismicClient(req)
 
